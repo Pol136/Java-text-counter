@@ -4,10 +4,15 @@ import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
@@ -19,6 +24,7 @@ public class Fragment1 extends Fragment {
         return x;
     }
     public String na, napis, proiz, chten, sim, cl, p;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -50,8 +56,11 @@ public class Fragment1 extends Fragment {
         sim = String.valueOf(simvol);
         cl = String.valueOf(clova);
         p = String.valueOf(pred);
+
         return inflater.inflate(R.layout.fragment_1, container, false);
     }
+
+
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         //TextView textView = (TextView) getView().findViewById(R.id.textView);
@@ -70,5 +79,15 @@ public class Fragment1 extends Fragment {
         textView11.setText(proiz);
         TextView textView19 = (TextView) getView().findViewById(R.id.textView19);
         textView19.setText(napis);
+        Button ok= (Button) getView().findViewById(R.id.button2);
+        Fragment me = this;
+        ok.setOnClickListener( new View.OnClickListener(){
+            public void onClick(View v){
+                getActivity().getSupportFragmentManager().beginTransaction().remove(me).commit();
+            }
+        });
     }
+
+
+
 }
