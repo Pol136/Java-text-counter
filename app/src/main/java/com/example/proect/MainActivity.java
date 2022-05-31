@@ -39,13 +39,13 @@ public class MainActivity extends AppCompatActivity{
                 transaction.commit();
             }
         });
-        Button sox = findViewById(R.id.button3);
-        sox.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                saveText();
-            }
-        });
+        //Button sox = findViewById(R.id.button3);
+        //sox.setOnClickListener(new View.OnClickListener(){
+        //     @Override
+        //    public void onClick(View view){
+        //        saveText();
+        //    }
+        //});
     }
 
     public void saveText(){
@@ -56,10 +56,10 @@ public class MainActivity extends AppCompatActivity{
         Toast.makeText(MainActivity.this, "Сохранено!", Toast.LENGTH_SHORT).show();
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        saveText();
-    }
+    //@Override
+    //protected void onDestroy() {
+    //    super.onDestroy();
+    //    saveText();
+    //}
 
 }

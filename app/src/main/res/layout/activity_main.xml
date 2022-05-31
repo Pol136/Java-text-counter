@@ -10,23 +10,13 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="200dp"
+        android:layout_width="395dp"
         android:layout_height="55dp"
         android:layout_gravity="bottom"
         android:text="Характеристики текста"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:ignore="MissingConstraints" />
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="215dp"
-        android:layout_height="55dp"
-        android:layout_gravity="bottom"
-        android:text="Сохранить"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
 
