@@ -10,18 +10,29 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_width="200dp"
+        android:layout_height="55dp"
         android:layout_gravity="bottom"
         android:text="Характеристики текста"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="215dp"
+        android:layout_height="55dp"
+        android:layout_gravity="bottom"
+        android:text="Сохранить"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/Edit"
-        android:layout_width="410dp"
+        android:layout_width="395dp"
         android:layout_height="695dp"
         android:gravity="top|left"
         android:hint="Введите текст"
@@ -30,8 +41,11 @@
         android:maxLines="10000"
         android:minLines="1"
         android:scrollbars="vertical"
+        android:textSize="23sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints,SpeakableTextPresentCheck"
-        tools:layout_editor_absoluteX="-3dp" />
+        tools:layout_editor_absoluteY="3dp" />
 
     <FrameLayout
         android:id="@+id/cont"
