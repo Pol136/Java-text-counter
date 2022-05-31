@@ -10,22 +10,21 @@
     tools:context=".Fragment1">
 
 
-
     <TextView
         android:id="@+id/textView17"
-        android:layout_width="196dp"
+        android:layout_width="191dp"
         android:layout_height="130dp"
         android:layout_weight="1"
-        android:text="Интересный факт: "
         android:gravity="center"
+        android:text="Интересный факт: "
         android:textColor="@color/black"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        android:textSize="20sp"/>
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textView16"
@@ -146,7 +145,7 @@
         android:gravity="center"
         android:text="tyu"
         android:textColor="@color/black"
-        android:textSize="20sp"
+        android:textSize="17sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
