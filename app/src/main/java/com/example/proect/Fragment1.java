@@ -1,5 +1,9 @@
 package com.example.proect;
 
+import android.content.Context;
+import android.database.Cursor;
+import android.database.SQLException;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -17,7 +21,12 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
+import java.io.IOException;
+
 public class Fragment1 extends Fragment {
+
+    private DatabaseHelper mDBHelper;
+    private SQLiteDatabase mDb;
 
     public static double getRandomIntegerBetweenRange(double min, double max){
         double x = (int)(Math.random()*((max-min)+1))+min;
@@ -50,12 +59,13 @@ public class Fragment1 extends Fragment {
         proiz = String.format("%.2f", n/pro);
         chten = String.format("%.2f", n/cht);
 
-        int k=(int)getRandomIntegerBetweenRange(1,12);
 
         na = String.valueOf(n);
         sim = String.valueOf(simvol);
         cl = String.valueOf(clova);
         p = String.valueOf(pred);
+
+
 
         return inflater.inflate(R.layout.fragment_1, container, false);
     }
@@ -63,8 +73,6 @@ public class Fragment1 extends Fragment {
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        //TextView textView = (TextView) getView().findViewById(R.id.textView);
-        //textView.setText(sqlit);
         TextView textView2 = (TextView) getView().findViewById(R.id.textView2);
         textView2.setText(na);
         TextView textView4 = (TextView) getView().findViewById(R.id.textView4);
@@ -79,6 +87,7 @@ public class Fragment1 extends Fragment {
         textView11.setText(proiz);
         TextView textView19 = (TextView) getView().findViewById(R.id.textView19);
         textView19.setText(napis);
+
         Button ok= (Button) getView().findViewById(R.id.button2);
         Fragment me = this;
         ok.setOnClickListener( new View.OnClickListener(){
@@ -86,6 +95,30 @@ public class Fragment1 extends Fragment {
                 getActivity().getSupportFragmentManager().beginTransaction().remove(me).commit();
             }
         });
+
+        Context thist = getActivity();
+        mDBHelper = new DatabaseHelper(thist);
+
+        try {
+            mDBHelper.updateDataBase();
+        } catch (IOException mIOException) {
+            throw new Error("UnableToUpdateDatabase");
+        }
+
+        try {
+            mDb = mDBHelper.getWritableDatabase();
+        } catch (SQLException mSQLException) {
+            throw mSQLException;
+        }
+
+        String product = "";
+        int k=(int)getRandomIntegerBetweenRange(1,12);
+        Cursor cursor = mDb.rawQuery("SELECT fuckt FROM dich WHERE id=k", null);
+        product = cursor.getString(1);
+        cursor.close();
+        TextView textView = (TextView) getView().findViewById(R.id.textView);
+        textView.setText(product);
+
     }
 
 
